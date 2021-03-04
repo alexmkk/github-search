@@ -1,3 +1,8 @@
+# About App
+
+This app finds and shows user profiles of github.
+Hooks are used.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
