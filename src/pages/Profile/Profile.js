@@ -1,26 +1,9 @@
-import React, {useContext, useEffect} from 'react'
-import { GithubContext } from './../context/github/githubContext';
-import { Link, useParams } from 'react-router-dom';
-import { Repos } from './../components/Repos';
+import React from 'react'
+import { Repos } from './../../components/Repos';
 
-export const Profile = () => {
-  const params = useParams()
-    
-  const {getUser, getRepos, loading, user, repos} = useContext(GithubContext)
-  const urlName = params.name
-  console.log(repos)
-  useEffect(() => {
-    getRepos(urlName)
-    getUser(urlName)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+const Profile = props => {
+  const {user, repos} = props
   
-  if (loading) {
-    return (
-      <p className='text-center'>Загрузка...</p>
-    )
-  }
-
   const {
     name, company, avatar_url,
     location, bio, blog,
@@ -30,10 +13,8 @@ export const Profile = () => {
   } = user
 
   return (
-      <>
-        <Link to='/' className='btn btn-link'>На главную</Link>
-
-        <div className='card mb-4'>
+    <>
+      <div className='card mb-4'>
           <div className='card-body'>
             <div className='row'>
               <div className='col-sm-3 text-center'>
@@ -47,7 +28,7 @@ export const Profile = () => {
                 }
                 <a
                   href={html_url}
-                  className='btn btn-dark'
+                  className='btn btn-dark mb-2'
                   target='_blank'
                   rel='noreferrer'
                 >Открыть профиль</a>
@@ -72,6 +53,8 @@ export const Profile = () => {
         </div>
 
         <Repos repos={repos} />
-      </>
+    </>
   )
 }
+
+export default Profile
