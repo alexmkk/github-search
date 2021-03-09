@@ -1,19 +1,17 @@
 import React from 'react'
 import { Search } from '../../components/Search'
 import { connect } from 'react-redux'
-import { search, clearUsers, setSearchText } from '../../store/actions/users'
+import { search, clearUsers } from '../../store/actions/users'
 import Loader from '../../components/Loader/Loader'
 import Users from './Users'
 
 const UsersContainer = props => {
-  const {loading, users, fetchSearchUsers, fetchClearUsers, text, setSearchText} = props
+  const {loading, users, fetchSearchUsers, fetchClearUsers} = props
   return (
       <>
         <Search 
           fetchSearchUsers={fetchSearchUsers}
           fetchClearUsers={fetchClearUsers}
-          text={text}
-          setSearchText={setSearchText}
         />
         {loading 
           ? <Loader />
@@ -26,14 +24,12 @@ const UsersContainer = props => {
 
 const mapStateToProps = state => ({
   users: state.users,
-  loading: state.loading,
-  text: state.text
+  loading: state.loading
 })
 
 const mapDispatchToprops = dispatch => ({
   fetchSearchUsers: value => dispatch(search(value)),
-  fetchClearUsers: () => dispatch(clearUsers()),
-  setSearchText: text => dispatch(setSearchText(text))
+  fetchClearUsers: () => dispatch(clearUsers())
 })
 
 

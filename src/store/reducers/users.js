@@ -1,6 +1,5 @@
 import { GET_USER, SET_LOADING, SEARCH_USERS, GET_REPOS, CLEAR_USERS, SET_SEARCH_TEXT } from '../actions/actionTypes';
 
-
 const initialState = {
   user: {},
   users: [],

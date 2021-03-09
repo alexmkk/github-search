@@ -1,6 +1,6 @@
 import React, { useEffect} from 'react'
 import { Link, useParams } from 'react-router-dom';
-import { getRepos, getUser } from './../../store/actions/users';
+import { getRepos, getUser} from './../../store/actions/users';
 import { connect } from 'react-redux';
 import Profile from './Profile';
 import Loader from '../../components/Loader/Loader';
@@ -8,7 +8,7 @@ import Loader from '../../components/Loader/Loader';
 
 const ProfileContainer = (props) => {
   const params = useParams()
-  const {fetchUser, fetchRepos, loading, user, repos} = props
+  const {fetchUser, fetchRepos, loading, user, repos, reposLang} = props
   const urlName = params.name
   
   useEffect(() => {
@@ -26,7 +26,7 @@ const ProfileContainer = (props) => {
   return (
       <>
         <Link to='/' className='btn btn-link'>На главную</Link>
-        <Profile user={user} repos={repos} />
+        <Profile user={user} repos={repos} reposLang={reposLang} />
       </>
   )
 }
@@ -34,7 +34,8 @@ const ProfileContainer = (props) => {
 const mapStateToProps = state => ({
   user: state.user,
   loading: state.loading,
-  repos: state.repos
+  repos: state.repos,
+  reposLang: state.reposLang
 })
 
 const mapDispatchToProps = dispatch => ({

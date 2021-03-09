@@ -4,7 +4,7 @@ import { AlertContext } from '../context/alert/AlertContext'
 export const Search = props => {
   const [value, setValue] = useState('')
   const alert = useContext(AlertContext)
-  const {fetchSearchUsers, fetchClearUsers, text, setSearchText} = props
+  const {fetchSearchUsers, fetchClearUsers} = props
   
   const onSubmit = (event) => {
     if (event.key !== 'Enter') {

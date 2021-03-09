@@ -48,8 +48,9 @@ export function getRepos(name) {
       const response = await axios.get(
         withCreds(`https://api.github.com/users/${name}/repos?per_page=5&`)
       )
-    
-      dispatch(getReposSuccess(response.data))  
+      
+      dispatch(getReposSuccess(response.data))
+      
     } catch (e) {
       console.log(e)
     }
@@ -68,13 +69,11 @@ export function setSearchText(text) {
   }
 }
 
-
 function setLoading() {
   return dispatch => {
     dispatch(setLoadingSuccess())
   }
 }
-
 
 function searchUsersSuccess(users) {
   return {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Repos } from './../../components/Repos';
+import Repos from '../../components/Repos/Repos';
 
 const Profile = props => {
   const {user, repos} = props
