@@ -1,7 +1,8 @@
 export function convDate(date) {
   const convDate = new Date(date)
-  let day = convDate.getDay()
-  let month = convDate.getMonth()
+  
+  let day = convDate.getUTCDate()
+  let month = convDate.getUTCMonth() + 1
   let year = convDate.getFullYear()
 
   function checkLen(str) {

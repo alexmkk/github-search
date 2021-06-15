@@ -7,7 +7,6 @@ import { createStore, applyMiddleware } from 'redux';
 import usersReducer from './store/reducers/users';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
 
 const store = createStore(
   usersReducer,
@@ -16,9 +15,7 @@ const store = createStore(
 
 const app = (
   <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <App />
   </Provider>
 )
 

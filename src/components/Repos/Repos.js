@@ -6,12 +6,14 @@ const Repos = props => {
   
   return (
     <>
-      {repos.map(repo => {
-        return <RepoContainer
-          key={repo.id}  
-          repo={repo}
-        />
-      })}
+      {repos
+        .sort((a,b) => new Date(b.updated_at) - new Date(a.updated_at))
+        .map(repo => {
+          return <RepoContainer
+            key={repo.id}  
+            repo={repo}
+          />
+        })}
     </>
   )
 }

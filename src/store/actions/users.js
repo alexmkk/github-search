@@ -4,7 +4,7 @@ import { SEARCH_USERS, GET_USER, GET_REPOS, CLEAR_USERS, SET_LOADING, SET_SEARCH
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID
 const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET
 
-const withCreds = url => {
+export const withCreds = url => {
   return `${url}client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`
 }
 

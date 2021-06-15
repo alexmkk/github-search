@@ -6,7 +6,11 @@ const Langs = props => {
   
   return <>
       {Object.keys(langs).map(lang => {
-        return <span className='badge bg-info text-white mr-3 p-2' key={lang}>
+        const color = langs[lang] > 50 ? 'bg-success' : 'bg-info'
+        const classes = ['badge text-white mr-3 p-2']
+        classes.push(color)
+        
+        return <span className={classes.join(' ')} key={lang}>
           {lang}: {langs[lang]} %
         </span>
         })}
